@@ -1,0 +1,176 @@
+<div class="container custom-container">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">School</h2>
+            <form (ngSubmit)="onSubmit()" [formGroup]="schoolForm" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input
+                            [ngClass]="{'is-invalid':schoolForm.get('name')?.hasError('required') && schoolForm.get('name')?.touched}"
+                            type="text" class="form-control" placeholder="Name" id="name" formControlName="name">
+                        <span class="text-danger"
+                            *ngIf="schoolForm.get('name')?.hasError('required') && schoolForm.get('name')?.touched">Name
+                            is required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Email</label>
+                        <input
+                            [ngClass]="{ 'is-invalid':(schoolForm.get('emailAddress')?.hasError('required') && schoolForm.get('emailAddress')?.touched) || (schoolForm.get('emailAddress')?.hasError('pattern') && schoolForm.get('emailAddress')?.touched) }"
+                            type="email" class="form-control" placeholder="Email" id="emailAddress"
+                            formControlName="emailAddress">
+                        <span class="text-danger"
+                            *ngIf="schoolForm.get('emailAddress')?.hasError('required') && schoolForm.get('emailAddress')?.touched">Email
+                            is required</span>
+                        <span class="text-danger"
+                            *ngIf="schoolForm.get('emailAddress')?.hasError('pattern') && schoolForm.get('emailAddress')?.touched">Email
+                            must be a valid email address</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input
+                            [ngClass]="{'is-invalid':schoolForm.get('phoneNumber')?.hasError('required') && schoolForm.get('phoneNumber')?.touched}"
+                            type="text" class="form-control" placeholder="Phone Number" id="phoneNumber"
+                            formControlName="phoneNumber">
+                        <span class="text-danger"
+                            *ngIf="schoolForm.get('phoneNumber')?.hasError('required') && schoolForm.get('phoneNumber')?.touched">Phone
+                            Number
+                            is required
+                        </span>
+                    </div>
+                    <div formGroupName="address" class="form-group">
+                        <div class="form-group">
+                            <label>Address:</label>
+                            <div style="margin-left: 30px;">
+                                <div class="form-group">
+                                    <label for="street">Street</label>
+                                    <input
+                                        [ngClass]="{'is-invalid':schoolForm.get('address.street')?.hasError('required') && schoolForm.get('address.street')?.touched}"
+                                        type="text" class="form-control" placeholder="Street" id="street"
+                                        formControlName="street">
+                                    <span class="text-danger"
+                                        *ngIf="schoolForm.get('address.street')?.hasError('required') && schoolForm.get('address.street')?.touched">Street
+                                        is required
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input
+                                        [ngClass]="{'is-invalid':schoolForm.get('address.city')?.hasError('required') && schoolForm.get('address.city')?.touched}"
+                                        type="text" class="form-control" placeholder="City" id="city"
+                                        formControlName="city">
+                                    <span class="text-danger"
+                                        *ngIf="schoolForm.get('address.city')?.hasError('required') && schoolForm.get('address.city')?.touched">
+                                        City is required.
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input
+                                        [ngClass]="{'is-invalid':schoolForm.get('address.country')?.hasError('required') && schoolForm.get('address.country')?.touched}"
+                                        type="text" class="form-control" placeholder="Country" id="country"
+                                        formControlName="country">
+                                    <div class="text-danger"
+                                        *ngIf="schoolForm.get('address.country')?.hasError('required') && schoolForm.get('address.country')?.touched">
+                                        Country is required.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input
+                                        [ngClass]="{'is-invalid':schoolForm.get('address.state')?.hasError('required') && schoolForm.get('address.state')?.touched}"
+                                        type="text" class="form-control" placeholder="State" id="state"
+                                        formControlName="state">
+                                    <div class="text-danger"
+                                        *ngIf="schoolForm.get('address.state')?.hasError('required') && schoolForm.get('address.state')?.touched">
+                                        State is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Student</label>
+                        <button type="button" class="btn btn-primary" (click)="addStudent()">Add Student</button>
+                        <div style="margin-left: 30px;">
+                            <div formArrayName="students">
+                                <div *ngFor="let student of studentArray().controls; let studentIndex=index">
+                                    <div [formGroupName]="studentIndex" style="overflow-x:auto">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    Name: <input
+                                                        [ngClass]="{'is-invalid':student.get('name')?.hasError('required') && student.get('name')?.touched}"
+                                                        type="text" class="form-control" formControlName="name"
+                                                        minlength="2">
+                                                    <div class="text-danger"
+                                                        *ngIf="student.get('name')?.hasError('required') && student.get('name')?.touched">
+                                                        Name is required and must be at least 2 characters.
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Email: <input
+                                                        [ngClass]="{'is-invalid':student.get('emailAddress')?.hasError('required') && student.get('emailAddress')?.touched}"
+                                                        type="email" class="form-control" formControlName="emailAddress"
+                                                        minlength="10">
+                                                    <div class="text-danger"
+                                                        *ngIf="student.get('emailAddress')?.hasError('required') && student.get('emailAddress')?.touched">
+                                                        Email is required and must be a valid email address with at
+                                                        least 10 characters.
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary"
+                                                        (click)="addSkills(studentIndex)">Add Skills</button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger"
+                                                        (click)="removeStudent(studentIndex)">Remove</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-left: 30px;">
+                                            <table formArrayName="skills">
+                                                <tr *ngFor="let skill of skillArray(studentIndex).controls; let j=index"
+                                                    [formGroupName]="j">
+                                                    <td>
+                                                        Name: <input type="text" class="form-control"
+                                                            formControlName="name">
+                                                        <div class="invalid-feedback"
+                                                            *ngIf="skill?.get('name')?.invalid && skill?.get('name')?.touched">
+                                                            Name is required.
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        Level: <input type="number" class="form-control"
+                                                            formControlName="level" min="0" max="10">
+                                                        <div class="invalid-feedback"
+                                                            *ngIf="skill?.get('level')?.invalid && skill?.get('level')?.touched">
+                                                            Level is required.
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button (click)="removeSkills(studentIndex, j)"
+                                                            class="btn btn-danger">Remove</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <br>
+                    <a (click)="patchForm()" class="btn btn-primary">PatchValue</a><br><br>
+                    <a (click)="clearForm()" class="btn btn-danger">ClearForm</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
