@@ -1,0 +1,40 @@
+<mat-horizontal-stepper [linear]="isLinear">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Step 1</ng-template>
+      <app-card-example></app-card-example>
+      <br>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="statusCtrl">
+          <mat-option *ngFor="let status of statusObj" [value]="status.value">
+            {{ status.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Step 2</ng-template>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Enter your last name">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Step 3</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

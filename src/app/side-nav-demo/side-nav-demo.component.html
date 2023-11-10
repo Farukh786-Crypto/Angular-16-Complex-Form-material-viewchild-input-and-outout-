@@ -1,0 +1,14 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened>
+    <!-- Your sidenav content goes here -->
+    <mat-nav-list  *ngFor="let link of links">
+      <a mat-list-item [routerLink]="[link.routerlink]" routerLinkActive="router-link-active">{{link.name}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Your main content goes here -->
+    <router-outlet></router-outlet>
+    <button (click)="sidenav.toggle()">Toggle Sidenav</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
