@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './input and Output/parent/parent.component';
+import { ChildComponent } from './input and Output/child/child.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SchoolComponent } from './school/school.component';
 import { StepperDemoExampleComponent } from './Stepper Example/stepper-demo-example/stepper-demo-example.component';
@@ -22,6 +22,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { ParentViewChildComponent } from './ViewChild-Example/parent-view-child/parent-view-child.component';
 import { ChildViewChildComponent } from './ViewChild-Example/child-view-child/child-view-child.component';
+import { ParentView1Component } from './ViewChildExample2/parent-view1/parent-view1.component';
+import { ChildView1Component } from './ViewChildExample2/child-view1/child-view1.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ChildViewChildComponent } from './ViewChild-Example/child-view-child/ch
     SideNavDemoComponent,
     CardExampleComponent,
     ParentViewChildComponent,
-    ChildViewChildComponent
+    ChildViewChildComponent,
+    ParentView1Component,
+    ChildView1Component
   ],
   imports: [
     BrowserModule,

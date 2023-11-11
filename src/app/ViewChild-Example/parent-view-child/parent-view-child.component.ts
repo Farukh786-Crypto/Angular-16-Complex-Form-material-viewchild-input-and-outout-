@@ -12,7 +12,8 @@ export class ParentViewChildComponent {
 
   onButtonClick()
   {
-    // access child component propert, method in parent component in ts file
+      // @ViewChild is a property decorator. 
+      // It provides a powerful way to access child elements and properties
       console.log('Parent button called !!');
       console.log('before value',this.ChildViewChildComponentRef.childProperty);
       this.ChildViewChildComponentRef.childProperty='Parent Value .. '
