@@ -11,7 +11,7 @@ export class SideNavDemoComponent {
   constructor(private route:Router) {
   }
   links=[
-    {name:'Product Search',routerlink :'/stepper-comp'},
+    {name:'Product Search',routerlink :'/app-follow-step-screen'},
     {name:'On Search Response',routerlink:'#'},
     {name:'Product Select',routerlink:'#'},
     {name:'On Select Response',routerlink:'#'},

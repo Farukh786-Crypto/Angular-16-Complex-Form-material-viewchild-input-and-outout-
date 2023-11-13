@@ -1,40 +1,274 @@
-<mat-horizontal-stepper [linear]="isLinear">
+<mat-horizontal-stepper #stepper [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Step 1</ng-template>
+      <ng-template matStepLabel></ng-template>
+      <!-- card component selector here -->
       <app-card-example></app-card-example>
       <br>
       <br>
       <mat-form-field appearance="outline">
         <mat-label>Status</mat-label>
-        <mat-select formControlName="statusCtrl">
+        <mat-select formControlName="statusFirstCtrl">
           <mat-option *ngFor="let status of statusObj" [value]="status.value">
             {{ status.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <br>
+      <!-- File component selector here -->
+      <app-file></app-file>
+      <br>
+      <div class="button-container">
+        <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+      </div>
     </form>
   </mat-step>
 
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Step 2</ng-template>
-      <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Enter your last name">
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusSecondCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <br>
+     <div class="button-container">
+       <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+     </div>
     </form>
   </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel>Step 3</ng-template>
-    <p>You are now done.</p>
+  <mat-step  [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusThirdCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+
+  <mat-step  [stepControl]="fourFormGroup">
+    <form [formGroup]="fourFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusFourCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+
+  <mat-step  [stepControl]="fifthFormGroup">
+    <form [formGroup]="fifthFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusFifthCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+
+  <mat-step  [stepControl]="sixthFormGroup">
+    <form [formGroup]="sixthFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusSixthCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+  <mat-step  [stepControl]="sevenFormGroup">
+    <form [formGroup]="sevenFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusSevenCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+  <mat-step  [stepControl]="eightFormGroup">
+    <form [formGroup]="eightFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusEightCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+  <mat-step  [stepControl]="nineFormGroup">
+    <form [formGroup]="nineFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusNineCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+  <mat-step  [stepControl]="tenFormGroup">
+    <form [formGroup]="tenFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusTenCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
+  </mat-step>
+  <mat-step  [stepControl]="elevenFormGroup">
+    <form [formGroup]="elevenFormGroup">
+      <ng-template matStepLabel></ng-template>
+     <!-- card component selector here -->
+     <app-card-example></app-card-example>
+     <br>
+     <br>
+     <mat-form-field appearance="outline">
+       <mat-label>Status</mat-label>
+       <mat-select formControlName="statusElevenCtrl">
+         <mat-option *ngFor="let status of statusObj" [value]="status.value">
+           {{ status.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+     <br>
+     <!-- File component selector here -->
+     <app-file></app-file>
+     <div class="button-container">
+      <button class="matSubmitBtn" mat-raised-button color="primary" (click)="navigateToNextStep(stepper)">Submit</button>
+    </div>
+     <br>  
+    </form>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
+      <button mat-raised-button color="accent" matStepperPrevious>Back</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

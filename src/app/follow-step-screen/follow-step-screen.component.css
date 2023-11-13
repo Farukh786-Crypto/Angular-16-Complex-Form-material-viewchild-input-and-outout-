@@ -1,0 +1,20 @@
+.cssForHeader {
+    margin: 300px 100px 30px 100px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    text-align: center;
+    font-weight: 700;
+}
+.cssForButton{
+    margin-left: 45%;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500px;
+    font-size: 1.027rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    min-width: 64px;
+    padding: 20px 25px;
+}

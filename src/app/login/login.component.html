@@ -1,0 +1,45 @@
+
+    <mat-card class="center-card custom-card">
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()" [formGroup]="signInForm" novalidate>
+                <div class="text-center">
+                    <img src="https://www.sumasoft.com/wp-content/uploads/2021/02/suma-soft-logo-1-75x40.png"
+                        alt="Daksh Depa Validator">
+                </div>
+                <div class="headerClass">
+                    <h1>Sign In</h1>
+                    <mat-form-field>
+                        <mat-label>Email or phone</mat-label>
+                        <input matInput formControlName="userEmailForm" name="userEmail" required>
+                        <mat-error *ngIf="signInForm.get('userEmailForm')?.hasError('required') && signInForm.get('userEmailForm')?.touched">
+                            Enter an email or phone number
+                        </mat-error>
+                        <mat-error *ngIf="signInForm.get('userEmailForm')?.hasError('email') && signInForm.get('userEmailForm')?.touched">
+                            Enter a proper email 
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="userPasswordForm" name="userPassword" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="signInForm.get('userPasswordForm')?.hasError('required') && signInForm.get('userPasswordForm')?.touched">
+                            Enter a Password
+                        </mat-error>
+                      </mat-form-field>                    
+                    <div style="margin-top: 30px;">
+                        <a href="#" class="create-account-link">Create account</a>
+                        <button mat-raised-button color="primary">Next</button>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <div id="gSignInWrapper">
+        <span class="label">Sign in with: </span>
+        <div id="gSignInBtn" class="customGPlusSignIn">
+            <span class="icon"></span>
+            <span class="buttonText">Google</span>
+        </div>
+    </div>

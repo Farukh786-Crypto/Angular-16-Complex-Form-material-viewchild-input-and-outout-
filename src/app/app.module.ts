@@ -24,6 +24,9 @@ import { ParentViewChildComponent } from './ViewChild-Example/parent-view-child/
 import { ChildViewChildComponent } from './ViewChild-Example/child-view-child/child-view-child.component';
 import { ParentView1Component } from './ViewChildExample2/parent-view1/parent-view1.component';
 import { ChildView1Component } from './ViewChildExample2/child-view1/child-view1.component';
+import { FileComponent } from './file/file.component';
+import { FollowStepScreenComponent } from './follow-step-screen/follow-step-screen.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { ChildView1Component } from './ViewChildExample2/child-view1/child-view1
     ParentViewChildComponent,
     ChildViewChildComponent,
     ParentView1Component,
-    ChildView1Component
+    ChildView1Component,
+    FileComponent,
+    FollowStepScreenComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
