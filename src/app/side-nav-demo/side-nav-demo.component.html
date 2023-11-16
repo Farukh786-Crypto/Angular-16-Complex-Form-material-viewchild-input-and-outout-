@@ -1,3 +1,4 @@
+
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" opened>
     <!-- Your sidenav content goes here -->
@@ -7,6 +8,9 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <div>
+      <h3 style="float:right">Your Certification id is {{certificationId}}</h3>
+    </div>
     <!-- Your main content goes here -->
     <router-outlet></router-outlet>
     <!-- <button (click)="sidenav.toggle()">Toggle Sidenav</button> -->

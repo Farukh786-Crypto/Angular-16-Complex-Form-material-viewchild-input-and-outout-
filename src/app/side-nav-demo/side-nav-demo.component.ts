@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-nav-demo.component.css']
 })
 export class SideNavDemoComponent {
-
+  certificationId:string='73db2773-35ad-4d25-99b1-62851afa98e6';
   constructor(private route:Router) {
   }
   links=[
